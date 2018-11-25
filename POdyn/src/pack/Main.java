@@ -22,14 +22,16 @@ public class Main {
 				}
 			}
 			
-			/*Solution sol=Solver.solve(inst);
-			double [] pourcentage=Solution.utilisation(sol); 
+			Solution sol=Solver.solve2(inst);
+		
 			for(int r=0;r<5;r++){
-				System.out.println("Le pourcentage d'utilisation du robot "+r+" est: "+pourcentage[r]+"%");
-			
+				double pourcentage=Solution.utilisation2(sol,r); 
+				System.out.println("Le pourcentage d'utilisation du robot "+r+" est: "+pourcentage+"%");
 			}
-			System.out.println("Nombre de destinations:"+inst.getNbredest()); */
-			Solution solu=dynamique.Dynamique(inst);
+			System.out.println("Le pourcentage d'utilisation total est:"+Solution.utilisationtot(sol)+"%");
+			
+			//System.out.println("Nombre de destinations:"+inst.getNbredest()); 
+			//Solution solu=dynamique.Dynamique(inst);
 			
 			
 			

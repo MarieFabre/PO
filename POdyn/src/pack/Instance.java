@@ -23,6 +23,7 @@ public class Instance {
 	private String[] destination; 
 	private String[][] destiRobot; 
 	public int Nbredest;
+	public ArrayList<String> copy;
 	public static final int NB_lignes=42836; 
 	//Getters 
 	
@@ -34,6 +35,9 @@ public class Instance {
 	}
 	public int getNbredest(){
 		return this.Nbredest;
+	}
+	public ArrayList<String> getListeDest(){
+		return this.copy;
 	}
 	public String[][] getDestiRobot(){
 		return this.destiRobot; 
@@ -59,8 +63,7 @@ public class Instance {
         br.close(); 
         fr.close(); 	
       
-        
-        ArrayList<String> copy= new ArrayList<String>();
+        copy= new ArrayList<String>();
         copy.add(0,destination[0]);
         
         for(int i=0;i<NB_lignes;i++){
@@ -74,10 +77,12 @@ public class Instance {
         	}
         	if(S==0){
         		
-        		copy.add(0,destination[i]);
+        		copy.add(destination[i]);
         	}
         }
         Nbredest=copy.size();
+        
+        
         File file2=new File("ressources/affectation.csv"); 
 		FileReader fr2 = new FileReader(file2);
         BufferedReader br2 = new BufferedReader(fr2);
