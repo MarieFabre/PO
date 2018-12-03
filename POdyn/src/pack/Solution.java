@@ -7,7 +7,7 @@ public class Solution {
 	private int[][][] etatRobot2;
 	
 	public static final int NB_ROBOT=5;
-	public static final int T_MAX=90000; 
+	public static final int T_MAX=100000; 
 	public static final int NB_lignes=42836; 
 	//Getter
 	public boolean[][] getEtatRobot(){
@@ -67,18 +67,16 @@ public class Solution {
 		//Determination du pourcentage d'utilisation du robot r
 		double pourcentage; 
 		int comp=0; //compteur du nombre de bacs total
-		for(int d=0;d<sol.getEtatRobot2()[r].length;d++){
+		for(int d=0;d<sol.getEtatRobot2()[r].length;d++){//on parcourt toutes les destinations du robot r
 			int cop=comp; //Compteur du nombre de bacs par destination
 			for(int t=0;t<T_MAX;t++){
-				if(t==50){
-				}
 				if(sol.getEtatRobot2()[r][d][t]==1){
 					comp++;  
-					System.out.println("t:"+t);
+					//System.out.println("t:"+t);
 				}
 			}
 			if(comp>cop){
-				System.out.println("destination "+ sol.instance.getListeDest().get(d)+":"+ (comp-cop)/8); 
+			//	System.out.println("destination "+ sol.instance.getListeDest().get(d)+":"+ (comp-cop)/8); 
 			}
 		}	
 		int nbBacs=comp/8; 
@@ -86,6 +84,28 @@ public class Solution {
 		pourcentage=Math.round(nbBacs*100.0*100.0/42836.0)/100.0;  
 	
 		return pourcentage; 
+	
+	}
+	public static int getnbBacs (Solution sol, int r){
+		//Determination du nb de bacs traites par le robot r
+		int comp=0; //compteur du nombre de bacs total
+		for(int d=0;d<sol.getEtatRobot2()[r].length;d++){//on parcourt toutes les destinations du robot r
+			int cop=comp; //Compteur du nombre de bacs par destination
+			for(int t=0;t<T_MAX;t++){
+				if(sol.getEtatRobot2()[r][d][t]==1){
+					comp++;  
+					//System.out.println("t:"+t);
+				}
+			}
+			if(comp>cop){
+			//	System.out.println("destination "+ sol.instance.getListeDest().get(d)+":"+ (comp-cop)/8); 
+			}
+		}	
+		int nbBacs=comp/8; 
+		//System.out.println("Nombre de bacs pris en charge par le robot"+r+" ="+nbBacs);
+		
+	
+		return nbBacs; 
 	
 	}
 	public static double utilisationtot(Solution sol){

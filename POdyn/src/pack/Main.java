@@ -22,7 +22,7 @@ public class Main {
 				}
 			}
 			
-			Solution sol=Solver.solve2(inst);
+			Solution sol=Solverbis.solve2(inst);
 		
 			for(int r=0;r<5;r++){
 				double pourcentage=Solution.utilisation2(sol,r); 

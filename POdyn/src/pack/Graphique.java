@@ -630,61 +630,66 @@ public class Graphique extends JFrame implements MouseListener, ComponentListene
 	public static void main(String[] parametresLigneCommande) throws IOException {
 
 		Instance inst=new Instance(); 
-		Solution sol=Solver.solve2(inst);
+		Solution sol=Solverbis.solve2(inst);
 		
 		ArrayList<String> copy=inst.getListeDest(); 
+		int T_MAX=40000; 
 		
 		Graphique g4=new Graphique("Simulation v2 statique de l'utilisation des robots",800,300); 
-		Courbe u=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][0]);
+		Courbe u=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][0]/*,0*/);
 		int nd=copy.indexOf(inst.getDestiRobot()[0][0]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u.ajouter(t,sol.getEtatRobot2()[0][nd][t]); 
 		}
 		g4.ajouter(u); 
 		
 		Courbe u2=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][1]);
 		int nd2=copy.indexOf(inst.getDestiRobot()[0][1]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u2.ajouter(t,sol.getEtatRobot2()[0][nd2][t]+3); 
 		}
 		g4.ajouter(u2);
 		Courbe u3=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][2]);
 		int nd3=copy.indexOf(inst.getDestiRobot()[0][2]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u3.ajouter(t,sol.getEtatRobot2()[0][nd3][t]+6); 
 		}
 		g4.ajouter(u3);
 		Courbe u4=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][3]);
 		int nd4=copy.indexOf(inst.getDestiRobot()[0][3]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u4.ajouter(t,sol.getEtatRobot2()[0][nd4][t]+9); 
 		}
 		g4.ajouter(u4);
 		Courbe u5=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][4]);
 		int nd5=copy.indexOf(inst.getDestiRobot()[0][4]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u5.ajouter(t,sol.getEtatRobot2()[0][nd5][t]+12); 
 		}
 		g4.ajouter(u5);
 		Courbe u6=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][5]);
 		int nd6=copy.indexOf(inst.getDestiRobot()[0][5]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u6.ajouter(t,sol.getEtatRobot2()[0][nd6][t]+15); 
 		}
 		g4.ajouter(u6);
 		Courbe u7=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][6]);
 		int nd7=copy.indexOf(inst.getDestiRobot()[0][6]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u7.ajouter(t,sol.getEtatRobot2()[0][nd7][t]+18); 
 		}
 		g4.ajouter(u7);
 		Courbe u8=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][7]);
 		int nd8=copy.indexOf(inst.getDestiRobot()[0][7]);
-		for(int t=0;t<90000;t++){
+		for(int t=0;t<T_MAX;t++){
 			u8.ajouter(t,sol.getEtatRobot2()[0][nd8][t]+21); 
 		}
 		g4.ajouter(u8);
 		g4.montrer(); 
+		g4.setMinX(3500);
+		g4.setMaxX(4000);
+		g4.setTraitsHorizontaux(false);
+		g4.setTraitsVerticaux(false);
 		/*int num=0; 
 		for(int r=0;r<5;r++){
 			for(int k=0;k<8;k++){
