@@ -22,11 +22,11 @@ public class Main {
 				}
 			}
 			
-			Solution sol=Solverbis.solve2(inst);
+			Solution sol=Solverbis.solve3(inst);
 		
 			for(int r=0;r<5;r++){
-				double pourcentage=Solution.utilisation2(sol,r); 
-				System.out.println("Le pourcentage d'utilisation du robot "+r+" est: "+pourcentage+"%");
+				double[] pourcentage=Solution.utilisation(sol); 
+				System.out.println("Le pourcentage d'utilisation du robot "+r+" est: "+pourcentage[r]+"%");
 			}
 			System.out.println("Le pourcentage d'utilisation total est:"+Solution.utilisationtot(sol)+"%");
 			

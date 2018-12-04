@@ -630,13 +630,13 @@ public class Graphique extends JFrame implements MouseListener, ComponentListene
 	public static void main(String[] parametresLigneCommande) throws IOException {
 
 		Instance inst=new Instance(); 
-		Solution sol=Solverbis.solve2(inst);
+		Solution sol=Solverbis.solve3(inst);
 		
 		ArrayList<String> copy=inst.getListeDest(); 
-		int T_MAX=40000; 
+		int T_MAX=100000; 
 		
-		Graphique g4=new Graphique("Simulation v2 statique de l'utilisation des robots",800,300); 
-		Courbe u=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][0]/*,0*/);
+		/*Graphique g4=new Graphique("Simulation v2 statique de l'utilisation des robots",800,300); 
+		Courbe u=new Courbe("Robot 0 destination "+inst.getDestiRobot()[0][0]);
 		int nd=copy.indexOf(inst.getDestiRobot()[0][0]);
 		for(int t=0;t<T_MAX;t++){
 			u.ajouter(t,sol.getEtatRobot2()[0][nd][t]); 
@@ -686,10 +686,49 @@ public class Graphique extends JFrame implements MouseListener, ComponentListene
 		}
 		g4.ajouter(u8);
 		g4.montrer(); 
-		g4.setMinX(3500);
-		g4.setMaxX(4000);
+		g4.setMinX(1000);
+		g4.setMaxX(3000);
 		g4.setTraitsHorizontaux(false);
-		g4.setTraitsVerticaux(false);
+		g4.setTraitsVerticaux(false);*/
+		
+		
+		//Graphique v3
+		Graphique g5=new Graphique("Simulation v3 statique de l'utilisation des robots",800,300); 
+		Courbe ua=new Courbe("Robot 0 d"/*,0*/);
+		for(int t=0;t<T_MAX;t++){
+			ua.ajouter(t,sol.getEtatRobot()[0][t]); 
+		}
+		g5.ajouter(ua); 
+		
+		Courbe u2a=new Courbe("Robot 1 ");
+		
+		for(int t=0;t<T_MAX;t++){
+			u2a.ajouter(t,sol.getEtatRobot()[1][t]+3); 
+		}
+		g5.ajouter(u2a);
+		Courbe u3a=new Courbe("Robot 2");
+		for(int t=0;t<T_MAX;t++){
+			u3a.ajouter(t,sol.getEtatRobot()[2][t]+6); 
+		}
+		g5.ajouter(u3a);
+		Courbe u4a=new Courbe("Robot 3 ");
+		for(int t=0;t<T_MAX;t++){
+			u4a.ajouter(t,sol.getEtatRobot()[3][t]+9); 
+		}
+		g5.ajouter(u4a);
+		Courbe u5a=new Courbe("Robot 4 ");
+		
+		for(int t=0;t<T_MAX;t++){
+			u5a.ajouter(t,sol.getEtatRobot()[4][t]+12); 
+		}
+		g5.ajouter(u5a);
+		g5.montrer(); 
+		g5.setMinX(3500);
+		g5.setMaxX(4000);
+		g5.setTraitsHorizontaux(false);
+		g5.setTraitsVerticaux(false);
+		g5.setUniteOrd(1);
+		
 		/*int num=0; 
 		for(int r=0;r<5;r++){
 			for(int k=0;k<8;k++){

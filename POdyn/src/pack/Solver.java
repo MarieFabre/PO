@@ -18,7 +18,7 @@ public class Solver {
 			for(int i=0;i<NB_ROBOT;i++ ){
 				for(int k=0;k<8;k++){
 					if(instance.getDestination()[j].equals(instance.getDestiRobot()[i][k])){
-						sol.setEtatRobot(i, instance.getDateArrivee()[j], true);
+						sol.setEtatRobot(i, instance.getDateArrivee()[j], 1);
 						//nbr++;
 					}
 				}
